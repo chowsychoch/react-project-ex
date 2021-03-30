@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './Square.scss';
 
 interface ISquareProps{
-    value: number
+    value: number;
+    player:string;
+    onClick: ()=> void
 }
 
 
@@ -12,7 +14,10 @@ const Square: React.FC <ISquareProps> = (props) => {
     
     return (
     <React.Fragment>
-    {<button className="square" onClick={()=>{setValue("X")}}>{value}
+    {<button className="square" onClick={()=>{
+        setValue(props.player)
+        props.onClick()
+        }}>{value}
     </button>}
     </React.Fragment>)
 }
